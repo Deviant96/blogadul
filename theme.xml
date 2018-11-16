@@ -35,17 +35,24 @@
     <b:skin><![CDATA[
 	
     /**PUT YOUR ALL CSS HERE**/
-	a{color:#2787da;}
 	
+	a{color:#2787da;}
+		
 	body{background:#eee;font-family:'Open Sans',sans-serif;font-size:16px;line-height:1.5;}
 	
 	section .container{background:#fff;margin-top:-20px;padding-bottom:50px;padding-left:25px;box-shadow: 0 4px 40px 11px rgba(0, 0, 0, 0.1), 0 6px 65px 2px rgba(0, 0, 0, 0.05);}
 	
-	header{background:#2787da;color:#dcdcdc;padding:20px;}
+	header{background:#2787da;padding:20px;}
 	header h1{text-align:center;font-weight:bold;text-transform:uppercase;}
-	header p{text-align:center;}
+	header h1.title,header h1 a{color:#dcdcdc;}
+	header p{text-align:center;color:#dcdcdc;}
 	
-	nav{position: sticky !important;position: -webkit-sticky;top: 0;font-weight:bold;z-index:999}
+	nav{position: sticky !important;position: -webkit-sticky;top: 0;font-weight:bold;z-index:999;}
+	nav>ul>p>a{text-decoration:underline;}
+	@media (max-width:480px){nav ul li{height:25px;}nav li a{display:unset!important;}}
+	@media (max-width:768px){nav{position:relative!important;}.nav>li{text-align:center;}}
+	
+	ul.contact{font-size:75%;}
 	
 	footer#foot1{background:#232323;padding:20px 0 20px 0;color:#999;font-size:12px;}
 	footer#foot2{background:#191919;padding:15px 0 0 0;color:#666;font-size:12px;}
@@ -53,6 +60,13 @@
 	
 	.back-to-top {background: none;margin: 0;position: fixed;bottom: 0;right: 0;width: 70px;height: 70px;z-index: 100;display: none;text-decoration: none;color: #ffffff;background-color: #2787da;}
 	.back-to-top span {font-size:350%;padding:7px;}
+	
+	/**WIDGETS**/
+	/**WIDGETS - IN POST (SINGLE ARTICLE VIEWING)**/
+	h2.date-header{font-size:90%;}
+	h3.post-title{font-size:200%;font-weight:bolder;}
+	div.entry-content{font-size:100%;}
+	div.post-footer{margin-top:10px;font-weight:900;font-size:90%;}
 	
 	/**DASHBOARD LAYOUT**/
 	body#layout ul{list-style-type:none;list-style:none;}
@@ -84,16 +98,20 @@
 	</header>
 	
 	<!-- Menu Navbar -->
-					<nav class="navbar navbar-default navbar-static-top">
-						<div class="container">
-							<ul class="nav navbar-nav">
-								<li><a expr:href='data:blog.homepageUrl'>Homepage</a></li>
-								<li><a href="">About</a></li>
-								<li><a href="">Contact</a></li>
-							</ul>
-						</div>
-					</nav>
-					<!-- End of Menu Navbar -->
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a expr:href='data:blog.homepageUrl'>Homepage</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right contact">
+				<li><a>WhatsApp : +62 897-9424-017</a></li>
+				<li><a href="mailto:abdulamd1295@gmail.com" class="navbar-link">abdulamd1295 [@] gmail.com</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- End of Menu Navbar -->
 
 	<section>
 		<div class="content-wrapper">
@@ -102,7 +120,7 @@
 			  <div class="col-md-8">
 				<div class="post-wrapper">
 				  <!--Put Main Section Here-->
-				  
+					<p><span class="glyphicon glyphicon-chevron-right"></span> Yang Terbaru</p>
 					<b:section class='main' id='main' showaddelement='no'>
 					<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'/>
 					</b:section>
@@ -130,15 +148,15 @@
 		<div class="footer-wrapper">
 		  <div class="container">
 			<div id="footer-container-1" class="col-md-4">
-				<b:section class='footer' id='footer' preferred='yes' showaddelement='yes' max-widgets='1'>
+				<b:section class='footer' id='footer' preferred='yes' showaddelement='yes' maxwidgets='1'>
 				</b:section>
 			</div>
 			<div id="footer-container-2" class="col-md-4">
-				<b:section class='footer' id='footer2' preferred='yes' showaddelement='yes' max-widgets='1'>
+				<b:section class='footer' id='footer2' preferred='yes' showaddelement='yes' maxwidgets='1'>
 				</b:section>
 			</div>
 			<div id="footer-container-3" class="col-md-4">
-				<b:section class='footer' id='footer3' preferred='yes' showaddelement='yes' max-widgets='1'>
+				<b:section class='footer' id='footer3' preferred='yes' showaddelement='yes' maxwidgets='1'>
 				</b:section>
 			</div>
 		  </div>
