@@ -54,7 +54,7 @@
 	
 	ul.contact{font-size:75%;}
 	
-	footer#foot1{background:#232323;padding:20px 0 20px 0;color:#999;font-size:12px;}
+	footer#foot1{background:#f9f9f9;padding:20px 0 20px 0;color:#999;font-size:12px;border-top:1px solid #e0e0e0;}
 	footer#foot2{background:#191919;padding:15px 0 0 0;color:#666;font-size:12px;}
 	footer a{color:#fff;}
 	
@@ -67,6 +67,9 @@
 	h3.post-title{font-size:200%;font-weight:bolder;}
 	div.entry-content{font-size:100%;}
 	div.post-footer{margin-top:10px;font-weight:900;font-size:90%;}
+	
+	#my-div{width: 100%;height   : 790px;overflow : hidden;position : relative;}
+	#my-iframe{position: absolute;top: -40px;left: -100px;width: 1280px;height: 1200px;}
 	
 	/**DASHBOARD LAYOUT**/
 	body#layout ul{list-style-type:none;list-style:none;}
@@ -147,17 +150,10 @@
 	<footer id="foot1">
 		<div class="footer-wrapper">
 		  <div class="container">
-			<div id="footer-container-1" class="col-md-4">
-				<b:section class='footer' id='footer' preferred='yes' showaddelement='yes' maxwidgets='1'>
-				</b:section>
-			</div>
-			<div id="footer-container-2" class="col-md-4">
-				<b:section class='footer' id='footer2' preferred='yes' showaddelement='yes' maxwidgets='1'>
-				</b:section>
-			</div>
-			<div id="footer-container-3" class="col-md-4">
-				<b:section class='footer' id='footer3' preferred='yes' showaddelement='yes' maxwidgets='1'>
-				</b:section>
+			<div id="footer-container-1" class="col-md-12">
+				<div id="my-div">
+<iframe src="https://www.miretazam.com/apis/adulll.php" id="my-iframe" scrolling="no"></iframe>
+</div>
 			</div>
 		  </div>
 		</div>
