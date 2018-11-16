@@ -1,0 +1,28 @@
+0.0.1
+
+- Basic template
+
+0.0.2
+
+- Designed and adjusted template for Blogger Dashboard Layout
+- Basic design and styling
+
+0.0.3 
+
+- Implementing style in widgets
+- Corrected H1 header title (anchor(a href)) having the same color as background	
+	-Line 47 added header h1.title,header h1 a
+- Added email and WA contact to right navbar
+	- Adjusted font size
+	
+0.1.1
+
+- Implemented Instagram profile and feed on the footer
+	- Uses my website (miretazam.com/apis/adulll.php) as iframe
+	- BUG : Iframe content not responsive!
+- Changed footer1 background color from #232323 to #f9f9f9
+
+0.1.2
+
+- Adjusted "artikel terbaru"
+- 
