@@ -60,11 +60,13 @@
 	
 	.back-to-top {background: none;margin: 0;position: fixed;bottom: 0;right: 0;width: 70px;height: 70px;z-index: 100;display: none;text-decoration: none;color: #ffffff;background-color: #2787da;}
 	.back-to-top span {font-size:350%;padding:7px;}
+
+	#newest-topic{margin-top:10px;font-size:150%;}
 	
 	/**WIDGETS**/
 	/**WIDGETS - IN POST (SINGLE ARTICLE VIEWING)**/
 	h2.date-header{font-size:90%;}
-	h3.post-title{font-size:200%;font-weight:bolder;}
+	h3.post-title{font-size:200%;font-weight:bolder;color:#0000FF;}
 	div.entry-content{font-size:100%;}
 	div.post-footer{margin-top:10px;font-weight:900;font-size:90%;}
 	
@@ -123,7 +125,9 @@
 			  <div class="col-md-8">
 				<div class="post-wrapper">
 				  <!--Put Main Section Here-->
-					<p><span class="glyphicon glyphicon-chevron-right"></span> Yang Terbaru</p>
+					<b:if cond='data:blog.pageType == "index"'>
+						<p id="newest-topic"><span class="glyphicon glyphicon-chevron-right"></span> Artikel Terbaru</p>
+					</b:if>
 					<b:section class='main' id='main' showaddelement='no'>
 					<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'/>
 					</b:section>
