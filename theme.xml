@@ -52,6 +52,7 @@
 		nav>ul>p>a{text-decoration:underline;}
 		@media (max-width:480px){nav ul li{height:25px;}nav li a{display:unset!important;}}
 		@media (max-width:768px){nav{position:relative!important;}.nav>li{text-align:center;}}
+		img.nav-icon{max-height:20px;max-width:20px!important;}
 		
 		ul.contact{font-size:75%;}
 		
@@ -71,18 +72,69 @@
 		div.entry-content{font-size:100%;}
 		div.post-footer{margin-top:10px;font-weight:900;font-size:90%;}
 		
+		/**WIDGETS - INSTAGRAM**/
 		#my-div{width: 100%;height   : 790px;overflow : hidden;position : relative;}
-		#my-iframe{position: absolute;top: -40px;left: -100px;width: 1280px;height: 1200px;}
+		#my-iframe{position: absolute;top: -20px;left: -5px;width: 100%;height: 1200px;border: 0px;}
+
+		/**WIDGETS - BODY POST (LIST ARTICLE VIEWING)**/
+		#thumb-span{width: 300px;height: 250px;display: block;position: relative;overflow: hidden;}
+  		#thumb-img{position: absolute;top: 0;left: 0;width: 100%;padding-right:30px;}
+		div .post-header{margin-top:-5px;margin-bottom:5px;}
+		div#article-body{font-size:90%;}
 		
 		/**DASHBOARD LAYOUT**/
 		body#layout ul{list-style-type:none;list-style:none;}
 		body#layout ul li{list-style-type:none;list-style:none;}
 		body#layout #main{float:left;width:65%;}
-		body#layout #sidebar-container{float:right;width:32%;}
+		body#layout #sidebar-container{float:right;width:32%;padding:15px;}
 		body#layout #footer-container-1{max-width:33%;float:left;}
 		body#layout #footer-container-2{max-width:33%;float:left;}
 		body#layout #footer-container-3{max-width:33%;float:left;}
 		]]></b:skin>
+
+		<!-- Auto read more JS-->
+		<script type='text/javascript'>var thumbnail_mode = "no-float" ;
+		summary_noimg = 460;
+		summary_img = 370;
+		img_thumb_height = 100;
+		img_thumb_width = 120;
+		</script>
+		<script type='text/javascript'>
+		//<![CDATA[
+		function removeHtmlTag(strx,chop){
+		if(strx.indexOf("<")!=-1)
+		{
+		var s = strx.split("<");
+		for(var i=0;i<s.length;i++){
+		if(s[i].indexOf(">")!=-1){
+		s[i] = s[i].substring(s[i].indexOf(">")+1,s[i].length);
+		}
+		}
+		strx = s.join("");
+		}
+		chop = (chop < strx.length-1) ? chop : strx.length-2;
+		while(strx.charAt(chop-1)!=' ' && strx.indexOf(' ',chop)!=-1) chop++;
+		strx = strx.substring(0,chop-1);
+		return strx+'...';
+		}
+
+		function createSummaryAndThumb(pID){
+		var div = document.getElementById(pID);
+		var imgtag = "";
+		var img = div.getElementsByTagName("img");
+		var summ = summary_noimg;
+		if(img.length>=1) {
+		imgtag = '<span id="thumb-span" style="float:left; padding:0px 10px 5px 0px;"><img id="thumb-img" src="'+img[0].src+'" /></span>';
+		summ = summary_img;
+		}
+
+		var summary = imgtag + '<div id="article-body">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
+		div.innerHTML = summary;
+		}
+
+		//]]>
+		</script>
+		<!-- End of auto read more-->
 	</head>
 	<body>
   
@@ -185,8 +237,8 @@
 				<li><a href=''>Contact</a></li>
 			</ul>
 			<ul class='nav navbar-nav navbar-right contact'>
-				<li><a>WhatsApp : +62 897-9424-017</a></li>
-				<li><a class='navbar-link' href='mailto:abdulamd1295@gmail.com'>abdulamd1295 [@] gmail.com</a></li>
+				<li><a><img class="nav-icon" src="http://www.cdn.miretazam.com/ic/whatsapp-32px.png"></img> +62 897-9424-017</a></li>
+				<li><a class='navbar-link' href='mailto:abdulamd1295@gmail.com'><img class="nav-icon" src="http://www.cdn.miretazam.com/ic/gmail-32px.png"></img> abdulamd1295 [@] gmail.com</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -207,7 +259,7 @@
 							<b:widget-settings>
 								<b:widget-setting name='showDateHeader'>true</b:widget-setting>
 								<b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
-								<b:widget-setting name='showShareButtons'>true</b:widget-setting>
+								<b:widget-setting name='showShareButtons'>false</b:widget-setting>
 								<b:widget-setting name='showCommentLink'>true</b:widget-setting>
 								<b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
 								<b:widget-setting name='showAuthor'>false</b:widget-setting>
@@ -215,16 +267,16 @@
 								<b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
 								<b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
 								<b:widget-setting name='timestampLabel'>-</b:widget-setting>
-								<b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+								<b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
 								<b:widget-setting name='style.layout'>1x1</b:widget-setting>
 								<b:widget-setting name='showLabels'>true</b:widget-setting>
-								<b:widget-setting name='showLocation'>true</b:widget-setting>
+								<b:widget-setting name='showLocation'>false</b:widget-setting>
 								<b:widget-setting name='showTimestamp'>false</b:widget-setting>
 								<b:widget-setting name='postsPerAd'>1</b:widget-setting>
 								<b:widget-setting name='showBacklinks'>false</b:widget-setting>
 								<b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
 								<b:widget-setting name='showInlineAds'>false</b:widget-setting>
-								<b:widget-setting name='showReactions'>true</b:widget-setting>
+								<b:widget-setting name='showReactions'>false</b:widget-setting>
 							</b:widget-settings>
 							<b:includable id='main' var='top'>
 							<b:if cond='!data:mobile'>
@@ -728,19 +780,42 @@
 
 								<div class='post-header'>
 								<div class='post-header-line-1'/>
+									<span class='post-comment-link'>
+										<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
+									</span>
+									<span class='post-labels'>
+										<b:if cond='data:top.showPostLabels and data:post.labels'>
+											<label>Tag : </label>
+											<b:loop values='data:post.labels' var='label'>
+												<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+											</b:loop>
+										</b:if>
+									</span>
 								</div>
 
 								<!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
 								<div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+									<b:if cond='data:blog.pageType == "static_page"'>
 									<data:post.body/>
+									<b:else/>
+
+									<b:if cond='data:blog.pageType != "item"'>
+
+									<div expr:id='"summary" + data:post.id'><data:post.body/></div>
+									<script type='text/javascript'>createSummaryAndThumb("summary<data:post.id/>");
+									</script> <span class='rmlink' style='float:right;padding-top:20px;'><a expr:href='data:post.url'>Baca selanjutnya</a></span>
+
+									</b:if>
+									<b:if cond='data:blog.pageType == "item"'><data:post.body/></b:if>
+									</b:if>
 									<div style='clear: both;'/> <!-- clear for photos floats -->
 								</div>
 
-								<b:if cond='data:post.hasJumpLink'>
+								<!--<b:if cond='data:post.hasJumpLink'>
 									<div class='jump-link'>
 										<a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
 									</div>
-								</b:if>
+								</b:if>-->
 
 								<div class='post-footer'>
 								<div class='post-footer-line post-footer-line-1'>
@@ -783,10 +858,6 @@
 										</b:if>
 									</span>
 
-									<span class='post-comment-link'>
-										<b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
-									</span>
-
 									<!-- backlinks -->
 									<span class='post-backlinks post-comment-link'>
 										<b:if cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                      and data:post.showBacklinks'>
@@ -816,14 +887,7 @@
 									</div>
 
 									<div class='post-footer-line post-footer-line-2'>
-									<span class='post-labels'>
-										<b:if cond='data:top.showPostLabels and data:post.labels'>
-											<data:postLabelsLabel/>
-											<b:loop values='data:post.labels' var='label'>
-												<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
-											</b:loop>
-										</b:if>
-									</span>
+									
 									</div>
 
 									<div class='post-footer-line post-footer-line-3'>
@@ -1126,6 +1190,9 @@
 					<div class='sidebar-wrapper'>
 						<!--Put Sidebar Section Here-->
 						<div id='sidebar-container'>
+							<div id='my-div'>
+								<iframe id='my-iframe' scrolling='no' src='https://www.miretazam.com/apis/adulll.php'/>
+							</div>
 							<b:section class='sidebar' growth='vertical' id='sidebar' preferred='yes' showaddelement='yes'/>
 							
 							<b:section class='sidebar' growth='vertical' id='sidebar2' preferred='yes' showaddelement='yes'/>
@@ -1141,9 +1208,7 @@
 		<div class='footer-wrapper'>
 		  <div class='container'>
 				<div class='col-md-12' id='footer-container-1'>
-					<div id='my-div'>
-						<iframe id='my-iframe' scrolling='no' src='https://www.miretazam.com/apis/adulll.php'/>
-					</div>
+					
 				</div>
 		  </div>
 		</div>
